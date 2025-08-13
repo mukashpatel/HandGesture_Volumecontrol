@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Volume Control</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        h1 { color: #333; }
+        button { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Hand Gesture Volume Control</h1>
+    <p>Use an open hand to increase volume, a closed fist to decrease volume.</p>
+    <button onclick="startStreaming()">Start Streaming</button>
+    <button onclick="stopStreaming()">Stop Streaming</button>
+    <script>
+        async function startStreaming() {
+            try {
+                const response = await fetch('/start', { method: 'POST' });
+                const result = await response.json();
+                alert(result.status);
+            } catch (error) {
+                alert('Error starting streaming: ' + error);
+            }
+        }
+
+        async function stopStreaming() {
+            try {
+                const response = await fetch('/stop', { method: 'POST' });
+                const result = await response.json();
+                alert(result.status);
+            } catch (error) {
+                alert('Error stopping streaming: ' + error);
+            }
+        }
+    </script>
+</body>
+</html>

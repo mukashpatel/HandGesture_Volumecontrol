@@ -1,0 +1,8 @@
+opencv-python
+mediapipe
+pyvirtualcam
+fastapi
+uvicorn
+pycaw
+comtypes
+numpy
